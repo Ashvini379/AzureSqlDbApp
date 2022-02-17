@@ -26,7 +26,7 @@ namespace AzureSqlDbApp.Controllers
         // The Index method is used to get a list of courses and return it to the view
         public IActionResult Index()
         {
-            IEnumerable<Course> _course_list = _course_service.GetCourses();
+            IEnumerable<Course> _course_list = _course_service.GetCourses(_configuration.GetConnectionString("SQLConnection"));
             return View(_course_list);
         }
     }
